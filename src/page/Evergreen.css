@@ -1,0 +1,22 @@
+.evergreen-container {
+    width:100%;
+    padding-bottom: 100px;
+    background: url("/everbg.PNG");
+    background-size: cover;
+}
+
+.evergreen-title {
+    padding-top: 50px;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    align-items: center;
+}
+
+.evergreen-pic {
+    margin: 40px auto;
+    max-width: 630px;
+    height: 180px;
+    background: url("/evergreen_logo.png");
+    background-repeat: no-repeat;
+}
