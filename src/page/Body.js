@@ -8,14 +8,13 @@ import useFirestore from "../hooks/useFirestore";
 function Body() {
   const { docs } = useFirestore("funding");
   const { docss } = useFirestore("announce");
-  const { docsss } = useFirestore("images");
+  const { docsss } = useFirestore("carousel");
 
   return (
     <div className="body-container">
       <div className="inside-container">
         <Carousel autoPlay="true" interval={4000} timeout={500}>
           <div className="inside-roll-container">
-            <p>{strings.homeSubTitle}</p>
             <h1>{strings.homeTitle}</h1>
           </div>
           <div className="inside-roll-container">
@@ -69,6 +68,38 @@ function Body() {
           <div className="inside-roll-image-container">
             {docsss &&
               docsss.slice(3, 4).map(doc => (
+                <div>
+                  <img src={doc.url} alt="uploaded-pic" />
+                </div>
+              ))}
+          </div>
+          <div className="inside-roll-image-container">
+            {docsss &&
+              docsss.slice(4, 5).map(doc => (
+                <div>
+                  <img src={doc.url} alt="uploaded-pic" />
+                </div>
+              ))}
+          </div>
+          <div className="inside-roll-image-container">
+            {docsss &&
+              docsss.slice(5, 6).map(doc => (
+                <div>
+                  <img src={doc.url} alt="uploaded-pic" />
+                </div>
+              ))}
+          </div>
+          <div className="inside-roll-image-container">
+            {docsss &&
+              docsss.slice(6, 7).map(doc => (
+                <div>
+                  <img src={doc.url} alt="uploaded-pic" />
+                </div>
+              ))}
+          </div>
+          <div className="inside-roll-image-container">
+            {docsss &&
+              docsss.slice(7, 8).map(doc => (
                 <div>
                   <img src={doc.url} alt="uploaded-pic" />
                 </div>

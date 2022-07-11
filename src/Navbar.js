@@ -38,9 +38,12 @@ function Navbar({ lang, setLang, cookies, setCookie }) {
     <>
       <nav className="navbar">
         <div className="navbar-container">
-          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          <Link to="#" className="navbar-logo" onClick={closeMobileMenu}>
             <img src="/eccca_banner.jpeg" alt="logobanner"></img>
           </Link>
+          <div className="homeSubTitle">
+            <p>{strings.homeSubTitle}</p>
+          </div>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
           </div>

@@ -100,19 +100,20 @@
 .fund-img-wrap {
   margin: auto;
   display: grid;
-  width: 400px;
-  height: 180px;
+  width: 480px;
+  height: 220px;
 }
 
 .fund-img-wrap img {
   margin: auto;
-  max-width: 400px;
-  max-height: 180px;
+  max-width: 480px;
+  max-height: 220px;
   /* top: 0;
   left: 0; */
 }
 
 .fund-container-title > h1 {
+  padding-top: 20px;
   margin-top: 10px;
   color: #f19072;
   font-size: 30px;
@@ -149,7 +150,7 @@
   padding: 20px;
 }
 
-@media screen and (max-width: 1580px) {
+@media screen and (max-width: 1850px) {
   
   .fund-img {
     display: grid;

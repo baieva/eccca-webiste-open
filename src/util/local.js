@@ -8,7 +8,7 @@ const strings = new LocalizedStrings({
     NavEver: "Evergreen",
     NavGallery: "Gallery",
     NavContact: "Contact",
-    homeTitle: "Welcome to ECCCA",
+    homeTitle: "Welcome to the ECCCA",
     homeSubTitle: "Essex County Chinese Canadian Association",
     homeFund: "Our Association Is Funded By",
     homeSecondTitle: "Welcome to ECCCA",

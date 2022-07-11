@@ -5,6 +5,7 @@ const useFirestore = collection => {
   const [docs, setDocs] = useState([]);
   const [docss, setDocss] = useState([]);
   const [docsss, setDocsss] = useState([]);
+  const [docssss, setDocssss] = useState([]);
 
   useEffect(() => {
     const unsub = dbFireStore
@@ -18,12 +19,13 @@ const useFirestore = collection => {
         setDocs(documents);
         setDocss(documents);
         setDocsss(documents);
+        setDocssss(documents);
       });
 
     return () => unsub();
   }, [collection]);
 
-  return { docs, docss, docsss };
+  return { docs, docss, docsss, docssss };
 };
 
 export default useFirestore;

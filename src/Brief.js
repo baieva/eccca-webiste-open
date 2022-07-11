@@ -21,7 +21,7 @@ const Brief = () => {
         <div>
             <div className="text1">
                 <p className="first-p">{temp[0]}</p>
-                {/* <p className="second-p">{temp[1]}</p> */}
+                <p className="second-p">{temp[1]}</p>
             </div>
             <div className="row1">
                 <div className="img_container">
@@ -30,11 +30,6 @@ const Brief = () => {
                 <div className="img_container">
                     <img src="/board_kitchen.jpg" alt="img" />
                 </div>
-                {/* <div className="grid_7">
-                    <p className="p1">{temp[2]}</p>
-                    <p className="p2">{temp[3]}</p>
-                    <p className="p2">{temp[4]}</p>
-                </div> */}
             </div>
             <div className="row1">
                 <div className="img_container">
@@ -44,13 +39,13 @@ const Brief = () => {
                     <img src="/board_hall.jpg" alt="img" />
                 </div>
             </div>
-            <div className="row1">
-                <div className="img_container">
-                    <img src="/board_member1.jpg" alt="img" />
-                </div>
-            </div>
             <div className="cards_contain">
                 <h1>{strings.aboutBoard}</h1>
+                <div className="row1">
+                    <div className="img_container_member">
+                        <img src="/board_member1.jpg" alt="img" />
+                    </div>
+                </div>
                 <div className="board_grid">
                     <div className="board_wrap">
                         <h5>{strings.president}</h5>

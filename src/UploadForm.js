@@ -13,6 +13,7 @@ const UploadForm = () => {
   const modifyDocs = useFirestore("announce");
   const { docss } = useFirestore("funding");
   const { docsss } = useFirestore("images");
+  const { docssss } = useFirestore("carousel");
 
   const [part, setPart] = useState(0);
 
@@ -40,10 +41,12 @@ const UploadForm = () => {
   let total = Math.ceil(modifyDocs.docs.length / 5);
   let totals = Math.ceil(docss.length / 5);
   let totalss = Math.ceil(docsss.length / 5);
+  let totalsss = Math.ceil(docssss.length / 5);
 
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState(1);
   const [pagess, setPagess] = useState(1);
+  const [pagesss, setPagesss] = useState(1);
 
   const handlePageChange = (event, value) => {
     setPage(value);
@@ -53,6 +56,9 @@ const UploadForm = () => {
   };
   const handlePagessChange = (event, value) => {
     setPagess(value);
+  };
+  const handlePagesssChange = (event, value) => {
+    setPagesss(value);
   };
 
   const types = ["image/png", "image/jpeg", "application/pdf"];
@@ -103,6 +109,10 @@ const UploadForm = () => {
   const setFunding = () => {
     setCategory("funding");
   };
+  
+  const setCarousel = () => {
+    setCategory("carousel");
+  };
 
   const removeAnno = (ref) => {
     Removal("announce", ref);
@@ -116,6 +126,10 @@ const UploadForm = () => {
     Removal("images", ref);
   };
 
+  const removeCarousel = (ref) => {
+    Removal("carousel", ref);
+  };
+
   return (
     <div className="uploadform-container">
       <div className="category-container">
@@ -125,6 +139,7 @@ const UploadForm = () => {
           <li><button onClick={() => setPart(2)}>modifier_anno</button></li>
           <li><button onClick={() => setPart(3)}>modifier_funding</button></li>
           <li><button onClick={() => setPart(4)}>modifier_images</button></li>
+          <li><button onClick={() => setPart(5)}>modifier_carousel</button></li>
         </ul>
       </div>
       <div className="upload_container">
@@ -186,6 +201,7 @@ const UploadForm = () => {
             <button onClick={setEver}>evergreen</button>
             <button onClick={setGallery}>gallery</button>
             <button onClick={setFunding}>funding</button>
+            <button onClick={setCarousel}>carousel</button>
             <form>
               <label className="upload_label">
                 <input type="file" onChange={changeHandler} />
@@ -345,6 +361,41 @@ const UploadForm = () => {
                 count={totalss}
                 page={pagess}
                 onChange={handlePagessChange}
+                hidePrevButton
+                hideNextButton
+              />
+            </div>
+          </div> : null
+        }
+        {part == 5 ?
+          <div>
+            {docssss &&
+              docssss.slice((pagesss - 1) * 5, pagesss * 5).map(modifyDoc => (
+                <div key={modifyDoc.id}>
+                  <div>
+                    <img src={modifyDoc.url} alt="uploaded-pic" />
+                    <h3>
+                      Posted on{" "}
+                      <SimpleDateTime
+                        dateSeparator="/"
+                        timeSeparator=":"
+                        format="YMD"
+                        showTime="0"
+                      >
+                        {modifyDoc.createdAt.seconds}
+                      </SimpleDateTime>
+                    </h3>
+                  </div>
+                  <div>
+                    <button onClick={() => removeCarousel(modifyDoc.id)}>remove</button>
+                  </div>
+                </div>
+              ))}
+            <div className="pagi">
+              <Pagination
+                count={totalsss}
+                page={pagesss}
+                onChange={handlePagesssChange}
                 hidePrevButton
                 hideNextButton
               />
