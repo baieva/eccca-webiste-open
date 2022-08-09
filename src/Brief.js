@@ -20,8 +20,8 @@ const Brief = () => {
     return (
         <div>
             <div className="text1">
-                <p className="first-p">{temp[0]}</p>
-                <p className="second-p">{temp[1]}</p>
+                <p className="first-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{temp[0]}</p>
+                <p className="second-p">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{temp[1]}</p>
             </div>
             <div className="row1">
                 <div className="img_container">

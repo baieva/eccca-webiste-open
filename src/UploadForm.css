@@ -65,3 +65,9 @@
   width: 100%;
   display: flex;
 }
+
+.pagi {
+  background-color: white;
+  border-radius: 20px;
+  border-width: thin;
+}

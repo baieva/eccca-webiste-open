@@ -14,6 +14,7 @@ const UploadForm = () => {
   const { docss } = useFirestore("funding");
   const { docsss } = useFirestore("images");
   const { docssss } = useFirestore("carousel");
+  const { docsssss } = useFirestore("everGallery");
 
   const [part, setPart] = useState(0);
 
@@ -42,11 +43,13 @@ const UploadForm = () => {
   let totals = Math.ceil(docss.length / 5);
   let totalss = Math.ceil(docsss.length / 5);
   let totalsss = Math.ceil(docssss.length / 5);
+  let totalssss = Math.ceil(docsssss.length / 5);
 
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState(1);
   const [pagess, setPagess] = useState(1);
   const [pagesss, setPagesss] = useState(1);
+  const [pagessss, setPagessss] = useState(1);
 
   const handlePageChange = (event, value) => {
     setPage(value);
@@ -59,6 +62,9 @@ const UploadForm = () => {
   };
   const handlePagesssChange = (event, value) => {
     setPagesss(value);
+  };
+  const handlePagessssChange = (event, value) => {
+    setPagessss(value);
   };
 
   const types = ["image/png", "image/jpeg", "application/pdf"];
@@ -114,20 +120,28 @@ const UploadForm = () => {
     setCategory("carousel");
   };
 
-  const removeAnno = (ref) => {
-    Removal("announce", ref);
+  const setEverGallery = () => {
+    setCategory("everGallery");
+  }
+
+  const removeAnno = (ref, url) => {
+    Removal("announce", ref, url);
   };
 
-  const removeFund = (ref) => {
-    Removal("funding", ref);
+  const removeFund = (ref, url) => {
+    Removal("funding", ref, url);
   };
 
-  const removeImage = (ref) => {
-    Removal("images", ref);
+  const removeImage = (ref, url) => {
+    Removal("images", ref, url);
   };
 
-  const removeCarousel = (ref) => {
-    Removal("carousel", ref);
+  const removeCarousel = (ref, url) => {
+    Removal("carousel", ref, url);
+  };
+  
+  const removeEverGallery = (ref, url) => {
+    Removal("everGallery", ref, url);
   };
 
   return (
@@ -140,6 +154,7 @@ const UploadForm = () => {
           <li><button onClick={() => setPart(3)}>modifier_funding</button></li>
           <li><button onClick={() => setPart(4)}>modifier_images</button></li>
           <li><button onClick={() => setPart(5)}>modifier_carousel</button></li>
+          <li><button onClick={() => setPart(6)}>modifier_everGallery</button></li>
         </ul>
       </div>
       <div className="upload_container">
@@ -202,6 +217,7 @@ const UploadForm = () => {
             <button onClick={setGallery}>gallery</button>
             <button onClick={setFunding}>funding</button>
             <button onClick={setCarousel}>carousel</button>
+            <button onClick={setEverGallery}>everGallery</button>
             <form>
               <label className="upload_label">
                 <input type="file" onChange={changeHandler} />
@@ -282,7 +298,7 @@ const UploadForm = () => {
                     <p>{modifyDoc.id}</p>
                   </div>
                   <div>
-                    <button onClick={() => removeAnno(modifyDoc.id)}>remove</button>
+                    <button onClick={() => removeAnno(modifyDoc.id, modifyDoc.url)}>remove</button>
                   </div>
                 </div>
               ))}
@@ -317,7 +333,7 @@ const UploadForm = () => {
                     </h3>
                   </div>
                   <div>
-                    <button onClick={() => removeFund(modifyDoc.id)}>remove</button>
+                    <button onClick={() => removeFund(modifyDoc.id, modifyDoc.url)}>remove</button>
                   </div>
                 </div>
               ))}
@@ -352,7 +368,7 @@ const UploadForm = () => {
                     </h3>
                   </div>
                   <div>
-                    <button onClick={() => removeImage(modifyDoc.id)}>remove</button>
+                    <button onClick={() => removeImage(modifyDoc.id, modifyDoc.url)}>remove</button>
                   </div>
                 </div>
               ))}
@@ -387,7 +403,7 @@ const UploadForm = () => {
                     </h3>
                   </div>
                   <div>
-                    <button onClick={() => removeCarousel(modifyDoc.id)}>remove</button>
+                    <button onClick={() => removeCarousel(modifyDoc.id, modifyDoc.url)}>remove</button>
                   </div>
                 </div>
               ))}
@@ -395,6 +411,41 @@ const UploadForm = () => {
               <Pagination
                 count={totalsss}
                 page={pagesss}
+                onChange={handlePagessssChange}
+                hidePrevButton
+                hideNextButton
+              />
+            </div>
+          </div> : null
+        }
+        {part == 6 ?
+          <div>
+            {docsssss &&
+              docsssss.slice((pagessss - 1) * 5, pagessss * 5).map(modifyDoc => (
+                <div key={modifyDoc.id}>
+                  <div>
+                    <img src={modifyDoc.url} alt="uploaded-pic" />
+                    <h3>
+                      Posted on{" "}
+                      <SimpleDateTime
+                        dateSeparator="/"
+                        timeSeparator=":"
+                        format="YMD"
+                        showTime="0"
+                      >
+                        {modifyDoc.createdAt.seconds}
+                      </SimpleDateTime>
+                    </h3>
+                  </div>
+                  <div>
+                    <button onClick={() => removeEverGallery(modifyDoc.id, modifyDoc.url)}>remove</button>
+                  </div>
+                </div>
+              ))}
+            <div className="pagi">
+              <Pagination
+                count={totalssss}
+                page={pagessss}
                 onChange={handlePagesssChange}
                 hidePrevButton
                 hideNextButton

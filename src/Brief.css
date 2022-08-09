@@ -39,6 +39,7 @@
 
 .first-p {
   width: 90%;
+  text-align: left;
   margin: 0 auto;
   font-size: 25px;
   font-family: "Times New Roman", Times, serif;
@@ -47,6 +48,7 @@
 
 .second-p {
   width: 90%;
+  text-align: left;
   margin: 0 auto;
   font-size: 25px;
   font-family: "Times New Roman", Times, serif;

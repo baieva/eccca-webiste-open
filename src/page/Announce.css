@@ -1,4 +1,3 @@
-
 .announce > h1 {
   font-family: "Noto Serif";
   color: #4e4e4e;
@@ -21,8 +20,11 @@
   text-align: center;
 }
 
-.importantMessage {
-  color: #cf0000;
+.etrans {
+  padding-left: 35%;
+  width:68%;
+  text-align: left;
+  font-size: larger;
 }
 
 

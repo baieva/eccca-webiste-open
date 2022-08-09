@@ -18,7 +18,7 @@ function Body() {
             <h1>{strings.homeTitle}</h1>
           </div>
           <div className="inside-roll-container">
-            <h1>Latest Activities</h1>
+            <h1>{strings.newAct}</h1>
             {docss &&
               docss.slice(0, 1).map(doc => (
                 <div className="latest-act">
@@ -28,7 +28,7 @@ function Body() {
               ))}
           </div>
           <div className="inside-roll-container">
-            <h1>Latest Activities</h1>
+            <h1>{strings.newAct}</h1>
             {docss &&
               docss.slice(1, 2).map(doc => (
                 <div className="latest-act">

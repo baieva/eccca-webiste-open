@@ -11,11 +11,21 @@ function Announce() {
         <div className="announce">
           <h1>{strings.annoTitle}</h1>
           <h4>{strings.aboutPayment}</h4>
-          <p>{strings.etransfer}</p>
-          <p className="importantMessage">{strings.recipientName} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {strings.recipientEmail}</p>
-          <p className="importantMessage">{strings.messageRequired}</p>
-          <p>{strings.etransNotice}</p>
-          <p>{strings.securityQuestion}</p>
+          <div className="etrans">
+            <p>&nbsp;</p>
+            <p>{strings.etransfer1}</p>
+            <p>{strings.etransfer2}</p>
+            <p>&nbsp;</p>
+            <p style={{fontStyle: "italic"}}>{strings.etransfer3}</p>
+            <p>{strings.etransfer4}</p>
+            <p>{strings.etransfer5}</p>
+            <p>{strings.etransfer6}</p>
+            <p>{strings.etransfer7}</p>
+            <p>&nbsp;</p>
+            <p style={{fontStyle: "italic"}}>{strings.etransfer8}</p>
+            <p>{strings.etransfer9}</p>
+            <p>{strings.etransfer10}</p>
+          </div>
           <AnnoGrid />
         </div>
       </div>

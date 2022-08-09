@@ -1,11 +1,19 @@
 import { useState, useEffect } from "react";
-import { dbFireStore } from "../db/config.js";
+import { dbFireStore, dbStorage } from "../db/config.js";
 
-const Removal = (collection, ref) => {
+const Removal = (collection, reff, url) => {
     // const [status, setStatus] = useState(false);
     // const [error, setError] = useState("");
 
-        dbFireStore.collection(collection).doc(ref).delete();
+        dbFireStore.collection(collection).doc(reff).delete();
+        var httpsRef = dbStorage.refFromURL(url);
+        // let fileName = httpsRef.name;
+        // const fileRef = dbStorage.child(collection + "/" + fileName);
+        httpsRef.delete().then(() => {
+            // File deleted successfully
+          }).catch((error) => {
+            // Uh-oh, an error occurred!
+          });
             // .then(() => {
             //     setStatus(true);
             // }).catcch(() => {

@@ -38,9 +38,9 @@ function Navbar({ lang, setLang, cookies, setCookie }) {
     <>
       <nav className="navbar">
         <div className="navbar-container">
-          <Link to="#" className="navbar-logo" onClick={closeMobileMenu}>
+          <a href="https://www.eccca.net/" className="navbar-logo" onClick={closeMobileMenu}>
             <img src="/eccca_banner.jpeg" alt="logobanner"></img>
-          </Link>
+          </a>
           <div className="homeSubTitle">
             <p>{strings.homeSubTitle}</p>
           </div>

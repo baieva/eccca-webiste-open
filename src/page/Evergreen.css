@@ -1,7 +1,7 @@
 .evergreen-container {
     width:100%;
     padding-bottom: 100px;
-    background: url("/everbg.PNG");
+    background: url("/everbg.png");
     background-size: cover;
 }
 
@@ -19,4 +19,12 @@
     height: 180px;
     background: url("/evergreen_logo.png");
     background-repeat: no-repeat;
+}
+
+.evergrids {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    max-width: 80vw;
 }
